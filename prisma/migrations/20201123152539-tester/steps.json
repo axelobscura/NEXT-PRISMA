@@ -1,0 +1,17 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "Song",
+      "field": "youtubeId",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Song",
+      "field": "albumCoverUrl",
+      "arity": "Required"
+    }
+  ]
+}
