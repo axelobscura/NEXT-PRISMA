@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 export default ({ song }) => (
   <div>
    <p>{song.name}</p>
-   <img src={song.albumCoverUrl} />
+   <img src={song.albumCoverUrl} style={{ width: '200px'}} />
   </div>
   
 );
