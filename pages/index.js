@@ -14,7 +14,7 @@ export async function getStaticProps() {
 export default ({ songs }) => (
   <ul>
     {songs.map((song) => (
-      <li key={song.id}>{song.name}</li>
+      <li key={song.id}>- {song.name}</li>
     ))}
   </ul>
 );
