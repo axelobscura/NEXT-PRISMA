@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PrismaClient } from '@prisma/client';
 
 export async function getStaticProps() {
@@ -16,7 +17,7 @@ export async function getStaticProps() {
 export default ({ songs }) => (
   <ul>
     {songs.map((song) => (
-      <li key={song.id}>{song.name}</li>
+      <Link href={`/songs/${song.id}`}><li key={song.id}>{song.name}</li></Link>
     ))}
   </ul>
 );
