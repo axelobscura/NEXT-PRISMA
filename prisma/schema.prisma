@@ -10,6 +10,8 @@ generator client {
 model Song {
   id       Int     @default(autoincrement()) @id
   name     String
+  youtubeId     String?
+  albumCoverUrl String?
   artist   Artist? @relation(fields: [artistId], references: [id])
   artistId Int?
 }

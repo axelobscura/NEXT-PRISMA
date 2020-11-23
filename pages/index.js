@@ -1,12 +1,14 @@
+import { PrismaClient } from '@prisma/client';
+
 export async function getStaticProps() {
+  const prisma = new PrismaClient();
+  const songs = await prisma.song.findMany({
+    include: { artist: true }
+  });
+
   return {
     props: {
-      songs: [
-        {
-          id: 1,
-          name: 'Test Song'
-        }
-      ]
+      songs
     }
   };
 }
@@ -14,7 +16,7 @@ export async function getStaticProps() {
 export default ({ songs }) => (
   <ul>
     {songs.map((song) => (
-      <li key={song.id}>- {song.name}</li>
+      <li key={song.id}>{song.name}</li>
     ))}
   </ul>
 );
