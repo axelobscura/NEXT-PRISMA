@@ -21,10 +21,9 @@ export async function getStaticProps() {
  const Index = ({ songs }) => {
    return (
   <Layout>
-    <Button size='large'>Default</Button>
-    <ul>
+    <ul style={{ listStyle: 'none'}}>
       {songs.map((song) => (
-        <Link href={`/songs/${song.id}`}><li key={song.id}>{song.name}</li></Link>
+        <Link href={`/songs/${song.id}`}><li key={song.id}><Button size='large' type="primary" style={{ minWidth: '100vh', marginBottom: '10px' }}>{song.name}</Button></li></Link>
       ))}
     </ul>
   </Layout>

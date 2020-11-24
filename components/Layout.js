@@ -12,7 +12,7 @@ export default function LayoutPage({ children }) {
                 <title>First Post</title>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.8.5/antd.min.css" integrity="sha512-f4gv+zHa7Vs6s7TyEI4R/QWeBUqPXJXFdV5H/3hb3UKPjE0jJ2hVGfFFtD0Wxr6Rw+O49i2C4TBeaoYWRUDCgQ==" crossorigin="anonymous" />
             </Head>
-            <Layout>
+            <Layout style={{ minHeight: '100vh' }}>
                 <Header className="header">
                     <div className="logo" />
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
@@ -58,7 +58,7 @@ export default function LayoutPage({ children }) {
                         <Content style={{ padding: '0 24px', minHeight: 280 }}>{children}</Content>
                     </Layout>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                <Footer style={{ textAlign: 'center' }}>©2020 Created by Axel Obscura Sarzotti.</Footer>
             </Layout>,
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/4.8.5/antd.min.js" integrity="sha512-BmKh6/zenMwx588NdWFFO2raJQFKpc6DjAInyvTnywji78OCloqhsa/UFKKiXJunhaI1bIrpNBJnEKkEOqedgw==" crossorigin="anonymous"></script>
