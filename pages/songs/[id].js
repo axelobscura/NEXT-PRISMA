@@ -1,3 +1,4 @@
+import Layout from "../../components/Layout";
 import { PrismaClient } from '@prisma/client';
 
 export async function getStaticProps({ params }) {
@@ -31,9 +32,9 @@ export async function getStaticPaths() {
 }
 
 export default ({ song }) => (
-  <div>
+  <Layout>
    <p>{song.name}</p>
    <img src={song.albumCoverUrl} style={{ width: '200px'}} />
-  </div>
+  </Layout>
   
 );
