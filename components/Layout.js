@@ -1,33 +1,29 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Hd from './Hd';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
-export default function LayoutPage({ children }) {
+const LayoutPage = ({ children, songs, titulo }) => {
     const { SubMenu } = Menu;
     const { Header, Content, Footer, Sider } = Layout;
     return (
         <>
             <Head>
-                <title>First Post</title>
+                <title>{titulo || ''}</title>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.8.5/antd.min.css" integrity="sha512-f4gv+zHa7Vs6s7TyEI4R/QWeBUqPXJXFdV5H/3hb3UKPjE0jJ2hVGfFFtD0Wxr6Rw+O49i2C4TBeaoYWRUDCgQ==" crossorigin="anonymous" />
             </Head>
             <Layout style={{ minHeight: '100vh' }}>
-                <Header className="header">
-                    <div className="logo" />
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                        <Menu.Item key="1">nav 1</Menu.Item>
-                        <Menu.Item key="2">nav 2</Menu.Item>
-                        <Menu.Item key="3">nav 3</Menu.Item>
-                    </Menu>
-                </Header>
-                <Content style={{ padding: '0 50px' }}>
-                    <Breadcrumb style={{ margin: '16px 0' }}>
+
+                <Hd songs={songs} />
+                
+                <Content style={{ padding: '0px' }}>
+                    <Breadcrumb style={{ padding: '16px 0', background: '#222' }}>
                         <Link href="/"><Breadcrumb.Item>Home</Breadcrumb.Item></Link>
                         <Breadcrumb.Item>List</Breadcrumb.Item>
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
-                    <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
+                    <Layout className="site-layout-background" style={{ padding: '0' }}>
                         <Sider className="site-layout-background" width={200}>
                             <Menu
                                 mode="inline"
@@ -55,13 +51,22 @@ export default function LayoutPage({ children }) {
                                 </SubMenu>
                             </Menu>
                         </Sider>
-                        <Content style={{ padding: '0 24px', minHeight: 280 }}>{children}</Content>
+                        <Content style={{ padding: '0 10px', minHeight: '80vh', background: '#333' }}>{children}</Content>
                     </Layout>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>©2020 Created by Axel Obscura Sarzotti.</Footer>
+                <Footer style={{ textAlign: 'center', background: '#111' }}>©2020 Created by Axel Obscura Sarzotti.</Footer>
             </Layout>,
-
+            <style jsx global>{`
+            body {
+                background-color: #000;
+            }
+            .ant-layout-content, .ant-layout-sider-children {
+                background-color: #000;
+            }
+            `}</style>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/4.8.5/antd.min.js" integrity="sha512-BmKh6/zenMwx588NdWFFO2raJQFKpc6DjAInyvTnywji78OCloqhsa/UFKKiXJunhaI1bIrpNBJnEKkEOqedgw==" crossorigin="anonymous"></script>
         </>
     )
-}
+};
+
+export default LayoutPage;

@@ -1,14 +1,9 @@
-const navBarStyle = {
-    backgroundColor: "red",
-    color: "white",
-    width: "100%",
-    height: "60px"
-  };
+import { Layout, Menu, Breadcrumb } from 'antd';
+import Link from 'next/link'
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
   
-  const NavBar = () => (
-    <div className="NavBar" style={navBarStyle}>
-      NAVBAR
-    </div>
+  const NavBar = ({songs}) => (
+    
   );
   
   export default NavBar;

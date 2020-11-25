@@ -9,10 +9,14 @@ export async function getStaticProps({ params }) {
       id: Number(params.id)
     }
   });
+  const songs = await prisma.song.findMany({
+    include: { artist: true }
+  });
 
   return {
     props: {
-      song
+      song,
+      songs
     }
   };
 }
@@ -31,10 +35,8 @@ export async function getStaticPaths() {
   };
 }
 
-export default ({ song }) => (
-  <Layout>
-   <p>{song.name}</p>
-   <img src={song.albumCoverUrl} style={{ width: '200px'}} />
+export default ({ songs, song }) => (
+  <Layout songs={songs} titulo={song.name}>
+    <p>{song.name}</p>
   </Layout>
-  
 );
